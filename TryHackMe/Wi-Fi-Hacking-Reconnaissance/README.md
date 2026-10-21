@@ -76,6 +76,7 @@ When analyzing Wi-Fi traffic, the captured packets are commonly examined as IEEE
 An Access Point provides wireless connectivity to client devices and commonly connects the wireless network to a wired network.
 
 Example:
+
 - A company Wi-Fi router provides wireless access to employee laptops.
 - The access point advertises the network so compatible devices can discover it.
 
@@ -84,6 +85,7 @@ Example:
 A Station is a device that participates in a wireless network.
 
 Examples include:
+
 - Laptop
 - Smartphone
 - Tablet
@@ -96,18 +98,19 @@ A station can discover access points, authenticate, associate with a network, an
 **SSID (Service Set Identifier)** is the name used to identify a Wi-Fi network.
 
 Example:
+
 `Office-WiFi`
 
 An ESSID is commonly used to refer to the network name of an Extended Service Set, where multiple access points may provide access to the same logical wireless network.
 
-Important:
-The SSID is a human-readable network name. It is not a password and does not provide encryption by itself.
+**Important:** The SSID is a human-readable network name. It is not a password and does not provide encryption by itself.
 
 ## 2.5 BSSID
 
 **BSSID (Basic Service Set Identifier)** identifies a particular Basic Service Set. In common infrastructure Wi-Fi deployments, it is usually represented by the MAC address of the access point's wireless interface.
 
 Example:
+
 `AA:BB:CC:11:22:33`
 
 A network with multiple access points may use the same SSID but have different BSSIDs.
@@ -174,6 +177,26 @@ Understanding wireless network identifiers and architecture helps an analyst:
 - BSSID identifies a specific Basic Service Set.
 - Channels and frequency bands affect wireless communication.
 - Monitor mode enables passive frame capture when the hardware and configuration support it.
+
+---
+
+## 2.11 Practical Screenshots
+
+The following screenshots document the practical work completed for Task 2 of the TryHackMe Wi-Fi Hacking room.
+
+The screenshots are stored in the repository's `images` directory.
+
+### Screenshot 1 — Task 2 Practical Lab
+
+![Task 2 Screenshot 1](images/Screenshot%202026-10-21%20141357.png)
+
+
+
+### Screenshot 2 — Task 2 Practical Lab
+
+![Task 2 Screenshot 3](images/Screenshot%202026-10-21%20141416.png)
+
+
 
 ---
 
@@ -305,7 +328,6 @@ A capture showing disconnection frames alone does not necessarily establish who 
 - Deauthentication and disassociation frames can be relevant to outage investigations.
 - Frame analysis requires context and correlation before drawing security conclusions.
 
-  
 ---
 
 ## 3.7 The Three 802.11 Frame Classes
@@ -317,6 +339,7 @@ Every wireless transmission uses IEEE 802.11 framing. Understanding frame types 
 Management frames establish and maintain the relationship between wireless stations and access points.
 
 Examples:
+
 - **Beacon:** Periodically advertises a wireless network.
 - **Probe Request:** Allows a client to actively search for a network.
 - **Probe Response:** Provides information in response to a probe request.
@@ -332,6 +355,7 @@ Examples:
 Control frames coordinate access to the shared wireless medium and help manage transmissions.
 
 Examples:
+
 - **RTS (Request to Send):** Requests access to transmit.
 - **CTS (Clear to Send):** Helps coordinate when a device may transmit.
 - **ACK (Acknowledgment):** Acknowledges reception at the relevant protocol layer.
@@ -445,7 +469,6 @@ Separate confirmed observations from hypotheses. A captured source address can b
 - Management Frame Protection can mitigate certain forged management-frame attacks.
 - Wireless evidence should be correlated before concluding that an attack occurred.
 
-
 ---
 
 # Overall Summary
@@ -461,4 +484,3 @@ These concepts form a foundation for further study of wireless reconnaissance, p
 ## Disclaimer
 
 This repository is for educational purposes. All testing and packet capture activities must be performed in authorized lab environments or on networks for which explicit permission has been granted.
-
