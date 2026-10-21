@@ -328,6 +328,14 @@ A capture showing disconnection frames alone does not necessarily establish who 
 - Deauthentication and disassociation frames can be relevant to outage investigations.
 - Frame analysis requires context and correlation before drawing security conclusions.
 
+ ### Screenshot — Task 3 Practical Lab
+
+![Task 3](images/Screenshot%202026-10-21%20142641.png)
+
+###  Screenshot — Task 3 Practical Lab
+
+![Task 3](images/Screenshot%202026-10-21%20142700.png)
+
 ---
 
 ## 3.7 The Three 802.11 Frame Classes
