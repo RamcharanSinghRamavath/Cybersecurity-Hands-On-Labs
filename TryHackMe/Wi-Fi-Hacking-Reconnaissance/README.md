@@ -305,6 +305,147 @@ A capture showing disconnection frames alone does not necessarily establish who 
 - Deauthentication and disassociation frames can be relevant to outage investigations.
 - Frame analysis requires context and correlation before drawing security conclusions.
 
+  
+---
+
+## 3.7 The Three 802.11 Frame Classes
+
+Every wireless transmission uses IEEE 802.11 framing. Understanding frame types helps security analysts interpret wireless packet captures and investigate suspicious activity.
+
+### A. Management Frames
+
+Management frames establish and maintain the relationship between wireless stations and access points.
+
+Examples:
+- **Beacon:** Periodically advertises a wireless network.
+- **Probe Request:** Allows a client to actively search for a network.
+- **Probe Response:** Provides information in response to a probe request.
+- **Authentication:** Participates in the authentication procedure.
+- **Association Request and Response:** Help establish a station's association with an access point.
+- **Deauthentication:** Terminates an authentication relationship.
+- **Disassociation:** Ends an association between a station and an access point.
+
+**Security relevance:** Some management frames may be vulnerable to spoofing when suitable protections are absent.
+
+### B. Control Frames
+
+Control frames coordinate access to the shared wireless medium and help manage transmissions.
+
+Examples:
+- **RTS (Request to Send):** Requests access to transmit.
+- **CTS (Clear to Send):** Helps coordinate when a device may transmit.
+- **ACK (Acknowledgment):** Acknowledges reception at the relevant protocol layer.
+
+**Security relevance:** Control-frame activity can help analysts understand wireless transmission behavior.
+
+### C. Data Frames
+
+Data frames carry data between wireless devices.
+
+On encrypted networks, the protected payload is generally not readable without appropriate authorized decryption context. Some frame-header information may remain visible.
+
+**Security relevance:** Data-frame metadata can help analysts understand wireless traffic patterns.
+
+---
+
+## 3.8 Beacon Frames
+
+An access point periodically broadcasts **Beacon frames** to advertise its presence.
+
+A beacon can include:
+
+- **BSSID:** Identifier of the Basic Service Set.
+- **SSID/ESSID:** Wireless network name, if included.
+- **Operating channel**
+- **Supported data rates**
+- **Network capabilities and security information**
+
+### Passive Scanning
+
+A compatible receiver can discover nearby wireless networks by listening for beacon frames without transmitting probe requests.
+
+**Practical example:** Wireless scanning tools can discover nearby networks by receiving their beacon frames.
+
+**Security relevance:** Beacon information helps analysts identify wireless networks and understand their advertised configurations.
+
+---
+
+## 3.9 Probe Requests and Probe Responses
+
+A **Probe Request** is a management frame that a station may transmit when actively searching for a wireless network.
+
+Some devices may probe for network names they have used previously, potentially revealing information about their network-discovery behavior.
+
+A matching access point may answer with a **Probe Response**, which provides relevant network information.
+
+### Security Relevance
+
+- Probe requests can reveal which network names a device is searching for.
+- An attacker may attempt to impersonate a network name.
+- Knowing a network name does not guarantee that a client will connect.
+- Connection behavior depends on client settings, authentication, encryption, and network security configuration.
+
+---
+
+## 3.10 Authentication, Association and Deauthentication
+
+A station typically performs authentication and association procedures when joining a wireless network.
+
+1. **Authentication:** The station and access point perform the applicable authentication procedure.
+2. **Association:** The station establishes an association with the access point.
+3. **Deauthentication:** Terminates an authentication relationship.
+4. **Disassociation:** Ends an association.
+
+In WPA2 deployments without effective Protected Management Frames, certain deauthentication frames may be spoofed.
+
+**Management Frame Protection (802.11w / PMF)** helps protect eligible robust management frames against forgery and replay, depending on configuration and device support.
+
+### Investigation Note
+
+A deauthentication frame alone does not prove malicious activity. Correlate the frame with timestamps, affected stations, access-point behavior, and other available evidence.
+
+---
+
+## 3.11 Practical Investigation Checklist
+
+For an authorized wireless capture, record:
+
+- Access point BSSID and relevant station addresses.
+- Frame type and subtype.
+- SSID or network name, when visible.
+- Channel and capture conditions.
+- Event timestamps and frequency.
+- Whether one or multiple stations are affected.
+- Whether the observed behavior matches expected network activity.
+- Evidence limitations, including missing packets or incomplete capture coverage.
+
+Separate confirmed observations from hypotheses. A captured source address can be spoofed, and a capture may not contain enough information to identify the person or device responsible.
+
+---
+
+## 3.12 Task 3 Questions and Answers
+
+**Question 1:** Which type of 802.11 frame does an access point broadcast periodically to advertise its presence?
+
+**Answer:** Beacon frame
+
+**Question 2:** Which management frame does a client send to actively search for a network by name?
+
+**Answer:** Probe Request
+
+---
+
+## 3.13 Task 3 Key Takeaways
+
+- Beacon frames advertise wireless networks.
+- Probe requests support active network discovery.
+- Probe responses provide information in response to suitable probe requests.
+- Management, control, and data frames serve different purposes.
+- Deauthentication and disassociation are different operations.
+- Management Frame Protection can mitigate certain forged management-frame attacks.
+- Wireless evidence should be correlated before concluding that an attack occurred.
+
+
 ---
 
 # Overall Summary
